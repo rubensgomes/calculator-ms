@@ -1,5 +1,5 @@
 [project]
-name = "calculator"
+name = "calculator-ms"
 version = "0.1.0"
 description = ""
 authors = [
@@ -10,6 +10,7 @@ requires-python = ">=3.14"
 dependencies = [
     "fastapi (>=0.115.0,<1.0.0)",
     "uvicorn[standard] (>=0.34.0,<1.0.0)",
+    "pyyaml (>=6.0.3,<7.0.0)",
 ]
 
 [tool.poetry]
@@ -19,9 +20,20 @@ packages = [{include = "calculator", from = "src"}]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
 build-backend = "poetry.core.masonry.api"
 
+[tool.coverage.run]
+source = ["calculator"]
+branch = true
+
+[tool.coverage.report]
+show_missing = true
+fail_under = 90
+
 [dependency-groups]
 dev = [
     "pytest (>=9.0.2,<10.0.0)",
     "httpx (>=0.28.0,<1.0.0)",
     "black (>=26.1.0,<27.0.0)",
+    "pylint (>=4.0.4,<5.0.0)",
+    "coverage (>=7.13.4,<8.0.0)",
+    "pytest-cov (>=7.0.0,<8.0.0)",
 ]

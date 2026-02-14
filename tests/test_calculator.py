@@ -1,3 +1,5 @@
+import math
+
 import pytest
 
 from calculator import Calculator
@@ -133,8 +135,6 @@ class TestLog10:
 
 class TestLn:
     def test_e(self, calc):
-        import math
-
         assert calc.ln(math.e) == pytest.approx(1.0)
 
     def test_one(self, calc):
@@ -158,8 +158,6 @@ class TestExp:
         assert calc.exp(0) == 1.0
 
     def test_one(self, calc):
-        import math
-
         assert calc.exp(1) == pytest.approx(math.e)
 
     def test_negative(self, calc):

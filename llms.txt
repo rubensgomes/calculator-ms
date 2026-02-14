@@ -1,0 +1,69 @@
+# Calculator-MS
+
+> Python calculator microservice built with FastAPI. Provides arithmetic operations via a REST API. Distribution name: calculator-ms. Python package: calculator. Repository: rubensgomes/calculator-ms.
+
+## Tech Stack
+
+- Python 3.14+, FastAPI, Uvicorn, Pydantic
+- Poetry for dependency management
+- PyYAML for application configuration
+- pytest + httpx for testing, Black for formatting
+
+## Project Structure
+
+- src/calculator/api.py: FastAPI endpoints (POST-based, Pydantic request/response models)
+- src/calculator/calculator.py: Core Calculator class (stateless, all methods return float)
+- src/calculator/config.py: Reads config.yaml; provides load_config(), setup_logging(), get_server_config()
+- src/calculator/__init__.py: Public API exports (Calculator, app, get_server_config)
+- tests/test_calculator.py: Unit tests (one test class per operation)
+- tests/test_api.py: Integration tests (FastAPI TestClient)
+- config.yaml: Application configuration (server and logging sections)
+
+## API
+
+All endpoints accept POST requests with JSON bodies and return {"result": float}.
+
+### Two-operand endpoints (body: {"a": float, "b": float})
+
+- POST /add: a + b
+- POST /subtract: a - b
+- POST /multiply: a * b
+- POST /divide: a / b (400 on division by zero)
+- POST /power: a raised to the power b
+- POST /nth_root: b-th root of a (400 on zeroth root or even root of negative)
+- POST /modulo: a mod b (400 on modulo by zero)
+- POST /floor_divide: a // b (400 on division by zero)
+
+### Single-operand endpoints (body: {"a": float})
+
+- POST /sqrt: Square root of a (400 on negative input)
+- POST /absolute: Absolute value of a
+- POST /floor: Floor of a
+- POST /ceil: Ceiling of a
+- POST /log10: Base-10 logarithm (400 on non-positive input)
+- POST /ln: Natural logarithm (400 on non-positive input)
+- POST /exp: e raised to the power a
+
+### Rounding endpoint (body: {"a": float, "decimals": int})
+
+- POST /round: Round a to n decimal places (decimals defaults to 0)
+
+## Configuration
+
+All settings in config.yaml with two top-level sections: server and logging.
+
+### Server
+
+server.host: bind address (default 0.0.0.0). server.port: listening port (default 8000). Access via get_server_config().
+
+### Logging
+
+logging section passed directly to Python dictConfig. Console handler (stdout) plus rotating file handler (logs/calculator-ms.log, 10 MB max, 5 backups). Default level: INFO. DEBUG logs inputs/results, INFO logs operation completions, WARNING logs validation errors.
+
+## Conventions
+
+- All Calculator methods are stateless and use float type hints
+- Validation errors raise ValueError with descriptive messages
+- API returns HTTP 400 with error detail for invalid inputs
+- Tests use pytest.approx() for float comparisons
+- Test classes are named Test<Operation> (e.g., TestAdd, TestDivide)
