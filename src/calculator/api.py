@@ -6,6 +6,7 @@ containing the result.
 """
 
 import logging
+from importlib.metadata import version
 
 import yaml
 from fastapi import FastAPI, HTTPException
@@ -21,8 +22,11 @@ logger = logging.getLogger(__name__)
 
 app = FastAPI(
     title="Calculator Microservice",
-    description="Arithmetic operations via REST API.\n\n"
-    "Download the [OpenAPI 3.1 spec (YAML)](/openapi.yaml).",
+    version=version("calculator-ms"),
+    description="A calculator with core arithmetic operations and some "
+    "advanced operations like power, root, modulo, floor, absolute, round, "
+    "ceil, log, ln, and exponential.",
+    openapi_url="/docs",
 )
 calc = Calculator()
 
@@ -171,10 +175,7 @@ def modulo(req: OperationRequest):
 
 @app.post("/floor_divide", response_model=OperationResponse)
 def floor_divide(req: OperationRequest):
-    """Return the floor division of a by b.
-
-    Returns an HTTP 400 Bad Request error on division by zero.
-    """
+    """Return the floor division of a by b. Returns an HTTP 400 Bad Request error on division by zero."""
     logger.debug("POST /floor_divide: a=%s, b=%s", req.a, req.b)
     try:
         result = calc.floor_divide(req.a, req.b)

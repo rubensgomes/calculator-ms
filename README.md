@@ -18,14 +18,14 @@ operations via a REST API.
 # Install dependencies
 poetry install
 
+# Activate environment
+poetry env activate
+
+# Generate an openapi.yaml file
+poetry run python scripts/generate_openapi.py
+
 # Start the development server
 poetry run python -m uvicorn calculator.api:app --reload
-
-# Run tests
-poetry run pytest
-
-# Format code
-poetry run black src/ tests/
 ```
 
 The API will be available at `http://127.0.0.1:8000`. Interactive docs are
@@ -91,14 +91,15 @@ curl -X POST http://127.0.0.1:8000/add \
 
 ## Configuration
 
-All settings are in `config.yaml` at the project root, organized into two sections.
+All settings are in `config.yaml` at the project root, organized into two
+sections.
 
 ### Server
 
 ```yaml
 server:
-  host: "0.0.0.0"        # Bind address
-  port: 8000              # Listening port
+    host: "0.0.0.0"        # Bind address
+    port: 8000              # Listening port
 ```
 
 Access the server config programmatically with `get_server_config()`.
@@ -107,14 +108,14 @@ Access the server config programmatically with `get_server_config()`.
 
 ```yaml
 logging:
-  root:
-    level: INFO           # DEBUG, INFO, WARNING, ERROR, CRITICAL
+    root:
+        level: INFO           # DEBUG, INFO, WARNING, ERROR, CRITICAL
 
-  handlers:
-    file:
-      filename: logs/calculator-ms.log
-      maxBytes: 10485760  # 10 MB
-      backupCount: 5
+    handlers:
+        file:
+            filename: logs/calculator-ms.log
+            maxBytes: 10485760  # 10 MB
+            backupCount: 5
 ```
 
 By default, logs are sent to both stdout (console handler) and

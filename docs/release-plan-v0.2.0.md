@@ -44,7 +44,7 @@ Swagger UI docs page, and improved API docstrings.
 - [x] Run `black src/ tests/` to verify formatting
 - [x] Run `pylint src/ tests/` and confirm 10.00/10
 - [x] Run `pytest` and confirm all tests pass
-- [ ] Commit all changes with release message
-- [ ] Tag the commit as `v0.2.0`
-- [ ] Push commit and tag to remote
-- [ ] Create GitHub release for `v0.2.0`
+- [x] Commit all changes with release message
+- [x] Tag the commit as `v0.2.0`
+- [x] Push commit and tag to remote
+- [x] Create GitHub release for `v0.2.0`

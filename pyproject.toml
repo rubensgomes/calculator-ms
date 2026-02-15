@@ -1,6 +1,6 @@
 [project]
 name = "calculator-ms"
-version = "0.2.0"
+version = "0.3.0"
 description = ""
 authors = [
     {name = "Rubens Gomes",email = "rubens.s.gomes@gmail.com"}
@@ -42,4 +42,7 @@ dev = [
     "coverage (>=7.13.4,<8.0.0)",
     "pytest-cov (>=7.0.0,<8.0.0)",
     "uvicorn[standard] (>=0.40.0,<0.41.0)",
+    "isort (>=7.0.0,<8.0.0)",
+    "mypy (>=1.19.1,<2.0.0)",
+    "types-pyyaml (>=6.0.12.20250915,<7.0.0.0)",
 ]

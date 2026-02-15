@@ -1,0 +1,485 @@
+openapi: 3.1.0
+info:
+  title: Calculator Microservice
+  description: A calculator with core arithmetic operations and some advanced operations
+    like power, root, modulo, floor, absolute, round, ceil, log, ln, and exponential.
+  version: 0.3.0
+paths:
+  /add:
+    post:
+      summary: Add
+      description: Return the sum of two numbers.
+      operationId: add_add_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /subtract:
+    post:
+      summary: Subtract
+      description: Return the difference of two numbers.
+      operationId: subtract_subtract_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /multiply:
+    post:
+      summary: Multiply
+      description: Return the product of two numbers.
+      operationId: multiply_multiply_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /divide:
+    post:
+      summary: Divide
+      description: 'Return the quotient of two numbers.
+
+
+        Returns an HTTP 400 Bad Request error on division by zero.'
+      operationId: divide_divide_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /power:
+    post:
+      summary: Power
+      description: Return a raised to the power b.
+      operationId: power_power_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /sqrt:
+    post:
+      summary: Sqrt
+      description: Return the square root. Returns an HTTP 400 Bad Request error on
+        negative input.
+      operationId: sqrt_sqrt_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /nth_root:
+    post:
+      summary: Nth Root
+      description: Return the b-th root of a. Returns an HTTP 400 Bad Request error
+        on invalid input.
+      operationId: nth_root_nth_root_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /modulo:
+    post:
+      summary: Modulo
+      description: Return a mod b. Returns an HTTP 400 Bad Request error on modulo
+        by zero.
+      operationId: modulo_modulo_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /floor_divide:
+    post:
+      summary: Floor Divide
+      description: Return the floor division of a by b. Returns an HTTP 400 Bad Request
+        error on division by zero.
+      operationId: floor_divide_floor_divide_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/OperationRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /absolute:
+    post:
+      summary: Absolute
+      description: Return the absolute value.
+      operationId: absolute_absolute_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /round:
+    post:
+      summary: Round Number
+      description: Return a rounded to the given number of decimal places.
+      operationId: round_number_round_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RoundRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /floor:
+    post:
+      summary: Floor
+      description: Return the floor of a.
+      operationId: floor_floor_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ceil:
+    post:
+      summary: Ceil
+      description: Return the ceiling of a.
+      operationId: ceil_ceil_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /log10:
+    post:
+      summary: Log10
+      description: Return the base-10 logarithm. Returns an HTTP 400 Bad Request error
+        on non-positive input.
+      operationId: log10_log10_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /ln:
+    post:
+      summary: Ln
+      description: Return the natural logarithm. Returns an HTTP 400 Bad Request error
+        on non-positive input.
+      operationId: ln_ln_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+  /exp:
+    post:
+      summary: Exp
+      description: Return e raised to the power a.
+      operationId: exp_exp_post
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SingleOperandRequest'
+        required: true
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/OperationResponse'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HTTPValidationError'
+components:
+  schemas:
+    HTTPValidationError:
+      properties:
+        detail:
+          items:
+            $ref: '#/components/schemas/ValidationError'
+          type: array
+          title: Detail
+      type: object
+      title: HTTPValidationError
+    OperationRequest:
+      properties:
+        a:
+          type: number
+          title: A
+        b:
+          type: number
+          title: B
+      type: object
+      required:
+      - a
+      - b
+      title: OperationRequest
+      description: Request body for two-operand operations.
+    OperationResponse:
+      properties:
+        result:
+          type: number
+          title: Result
+      type: object
+      required:
+      - result
+      title: OperationResponse
+      description: Standard response body containing a single float result.
+    RoundRequest:
+      properties:
+        a:
+          type: number
+          title: A
+        decimals:
+          type: integer
+          title: Decimals
+          default: 0
+      type: object
+      required:
+      - a
+      title: RoundRequest
+      description: Request body for the rounding operation.
+    SingleOperandRequest:
+      properties:
+        a:
+          type: number
+          title: A
+      type: object
+      required:
+      - a
+      title: SingleOperandRequest
+      description: Request body for single-operand operations.
+    ValidationError:
+      properties:
+        loc:
+          items:
+            anyOf:
+            - type: string
+            - type: integer
+          type: array
+          title: Location
+        msg:
+          type: string
+          title: Message
+        type:
+          type: string
+          title: Error Type
+        input:
+          title: Input
+        ctx:
+          type: object
+          title: Context
+      type: object
+      required:
+      - loc
+      - msg
+      - type
+      title: ValidationError

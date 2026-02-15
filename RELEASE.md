@@ -1,5 +1,7 @@
 # Release process
 
+**Currently, only Rubens Gomes is authorized to push a release**
+
 ## Prerequisites
 
 1. Ensure the following packages and tools are installed:
@@ -12,14 +14,18 @@
     - git version 2.43.0 or later
     - grep version 3.11 or later
 
-2. Ensure the a `release` branch is created in the remote repository.
+2. Ensure a `release` branch is created in the remote repository.
 
-3. Ensure the `claude/commands` files from <https://github.com/rubensgomes/ai-code-steps?tab=readme-ov-file> are
+3. Ensure the `claude/commands` files
+   from <https://github.com/rubensgomes/ai-code-steps?tab=readme-ov-file> are
    installed in the local `~/.claude/commands` folder.
 
-4. Ensure the `claude/scripts/test_github_connectivity.sh` files
-   from <https://github.com/rubensgomes/ai-code-steps?tab=readme-ov-file> are
-   installed in `~/bin` folder.
+4. Ensure the `scripts/test_github_connectivity.sh` is executed prior to running
+   a release to ensure connectivity to GitHub remote repository.
+
+5. Ensure `poetry run python scripts/generate_openapi.py` is executed during
+   release to ensure the latest version of `openapi.yaml` file is saved for that
+   release.
 
 ## Environment Variables
 
@@ -28,14 +34,36 @@ slash command `.claude/commands/release-plan.md`. Therefore, it is expected
 that a `Claude Code` CLI session is started running on an underlying Linux
 `bash` shell with the following environment variables set:
 
-**Currently, only Rubens Gomes is able to push a release**
-
 - GIT_AUTHOR_NAME
 - GIT_AUTHOR_EMAIL
 - GIT_COMMITTER_EMAIL
 - GITHUB_USER
 - GITHUB_TOKEN
 - GH_TOKEN (should be same as GITHUB_TOKEN)
+
+## Commands to run during release
+
+- The following commands must run and succeed during a release:
+
+    ```bash
+    # Format code
+    poetry run black src/ tests/
+    
+    # Lint
+    poetry run pylint src/
+    
+    # Type checking
+    poetry run mypy src/
+    
+    # Sort imports
+    poetry run isort src/ tests/
+    
+    # Run tests
+    poetry run pytest
+
+    # Run tests with coverage report
+    poetry run python -m coverage run -m pytest tests/
+    ```
 
 ## Generating a release plan
 
