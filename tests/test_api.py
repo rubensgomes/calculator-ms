@@ -1,9 +1,25 @@
 import pytest
+import yaml
 from fastapi.testclient import TestClient
 
 from calculator.api import app
 
 client = TestClient(app)
+
+
+def test_root_redirects_to_docs():
+    response = client.get("/", follow_redirects=False)
+    assert response.status_code == 307
+    assert response.headers["location"] == "/docs"
+
+
+def test_openapi_yaml():
+    response = client.get("/openapi.yaml")
+    assert response.status_code == 200
+    assert "application/vnd.oai.openapi" in response.headers["content-type"]
+    spec = yaml.safe_load(response.text)
+    assert spec["openapi"].startswith("3.1")
+    assert "/add" in spec["paths"]
 
 
 def test_add():

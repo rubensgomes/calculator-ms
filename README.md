@@ -19,7 +19,7 @@ operations via a REST API.
 poetry install
 
 # Start the development server
-poetry run uvicorn calculator.api:app --reload
+poetry run python -m uvicorn calculator.api:app --reload
 
 # Run tests
 poetry run pytest

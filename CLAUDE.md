@@ -42,7 +42,7 @@ pytest -v
 black src/ tests/
 
 # Start dev server
-uvicorn calculator.api:app --reload
+poetry run python -m uvicorn calculator.api:app --reload
 ```
 
 ## Configuration

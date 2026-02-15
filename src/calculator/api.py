@@ -7,7 +7,9 @@ containing the result.
 
 import logging
 
+import yaml
 from fastapi import FastAPI, HTTPException
+from fastapi.responses import RedirectResponse, Response
 from pydantic import BaseModel
 
 from .calculator import Calculator
@@ -17,8 +19,28 @@ load_config()
 setup_logging()
 logger = logging.getLogger(__name__)
 
-app = FastAPI()
+app = FastAPI(
+    title="Calculator Microservice",
+    description="Arithmetic operations via REST API.\n\n"
+    "Download the [OpenAPI 3.1 spec (YAML)](/openapi.yaml).",
+)
 calc = Calculator()
+
+
+@app.get("/", include_in_schema=False)
+def root():
+    """Redirect the landing page to Swagger UI."""
+    return RedirectResponse(url="/docs")
+
+
+@app.get("/openapi.yaml", include_in_schema=False)
+def openapi_yaml():
+    """Return the OpenAPI 3.1 spec as YAML."""
+    openapi_schema = app.openapi()
+    yaml_content = yaml.dump(openapi_schema, sort_keys=False, allow_unicode=True)
+    return Response(
+        content=yaml_content, media_type="application/vnd.oai.openapi;version=3.1"
+    )
 
 
 class OperationRequest(BaseModel):
@@ -79,7 +101,10 @@ def multiply(req: OperationRequest):
 
 @app.post("/divide", response_model=OperationResponse)
 def divide(req: OperationRequest):
-    """Return the quotient of two numbers. Returns 400 on division by zero."""
+    """Return the quotient of two numbers.
+
+    Returns an HTTP 400 Bad Request error on division by zero.
+    """
     logger.debug("POST /divide: a=%s, b=%s", req.a, req.b)
     try:
         result = calc.divide(req.a, req.b)
@@ -104,7 +129,7 @@ def power(req: OperationRequest):
 
 @app.post("/sqrt", response_model=OperationResponse)
 def sqrt(req: SingleOperandRequest):
-    """Return the square root. Returns 400 on negative input."""
+    """Return the square root. Returns an HTTP 400 Bad Request error on negative input."""
     logger.debug("POST /sqrt: a=%s", req.a)
     try:
         result = calc.sqrt(req.a)
@@ -117,7 +142,7 @@ def sqrt(req: SingleOperandRequest):
 
 @app.post("/nth_root", response_model=OperationResponse)
 def nth_root(req: OperationRequest):
-    """Return the b-th root of a. Returns 400 on invalid input."""
+    """Return the b-th root of a. Returns an HTTP 400 Bad Request error on invalid input."""
     logger.debug("POST /nth_root: a=%s, b=%s", req.a, req.b)
     try:
         result = calc.nth_root(req.a, req.b)
@@ -133,7 +158,7 @@ def nth_root(req: OperationRequest):
 
 @app.post("/modulo", response_model=OperationResponse)
 def modulo(req: OperationRequest):
-    """Return a mod b. Returns 400 on modulo by zero."""
+    """Return a mod b. Returns an HTTP 400 Bad Request error on modulo by zero."""
     logger.debug("POST /modulo: a=%s, b=%s", req.a, req.b)
     try:
         result = calc.modulo(req.a, req.b)
@@ -146,7 +171,10 @@ def modulo(req: OperationRequest):
 
 @app.post("/floor_divide", response_model=OperationResponse)
 def floor_divide(req: OperationRequest):
-    """Return the floor division of a by b. Returns 400 on division by zero."""
+    """Return the floor division of a by b.
+
+    Returns an HTTP 400 Bad Request error on division by zero.
+    """
     logger.debug("POST /floor_divide: a=%s, b=%s", req.a, req.b)
     try:
         result = calc.floor_divide(req.a, req.b)
@@ -201,7 +229,7 @@ def ceil(req: SingleOperandRequest):
 
 @app.post("/log10", response_model=OperationResponse)
 def log10(req: SingleOperandRequest):
-    """Return the base-10 logarithm. Returns 400 on non-positive input."""
+    """Return the base-10 logarithm. Returns an HTTP 400 Bad Request error on non-positive input."""
     logger.debug("POST /log10: a=%s", req.a)
     try:
         result = calc.log10(req.a)
@@ -214,7 +242,7 @@ def log10(req: SingleOperandRequest):
 
 @app.post("/ln", response_model=OperationResponse)
 def ln(req: SingleOperandRequest):
-    """Return the natural logarithm. Returns 400 on non-positive input."""
+    """Return the natural logarithm. Returns an HTTP 400 Bad Request error on non-positive input."""
     logger.debug("POST /ln: a=%s", req.a)
     try:
         result = calc.ln(req.a)
