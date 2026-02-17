@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.4.0] - 2026-02-16
+
+### Changed
+
+- Updated `pyproject.toml` project description to "A calculator microservice."
+- Fixed `RELEASE.md` script path from `test_github_connectivity.sh` to `scripts/test_github_connectivity.sh`.
+- Fixed `RELEASE.md` slash command example from `/release-plan javamcp` to `/release-plan rubensgomes/calculator-ms`.
+- Removed trailing instructions paragraph from `RELEASE.md`.
+
 ## [0.3.0] - 2026-02-15
 
 ### Added

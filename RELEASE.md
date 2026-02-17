@@ -73,14 +73,12 @@ start `Claude Code`, and run the following custom slash command:
 - Test connectivity to this project remote Git repo:
 
    ```bash
-   test_github_connectivity.sh rubensgomes/calculator-ms
+   scripts/test_github_connectivity.sh rubensgomes/calculator-ms
    ```
 
 - Claude code custom slash command:
 
     ```text
-    /release-plan javamcp
+    /release-plan rubensgomes/calculator-ms
     ```
 
-- Then once the plan is reviewed and approved, you prompt `Claude Code` to
-  proceed with the plan.
