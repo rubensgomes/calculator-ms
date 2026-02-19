@@ -20,7 +20,7 @@
    from <https://github.com/rubensgomes/ai-code-steps?tab=readme-ov-file> are
    installed in the local `~/.claude/commands` folder.
 
-4. Ensure the `scripts/test_github_connectivity.sh` is executed prior to running
+4. Ensure the `scripts/test_github.sh` is executed prior to running
    a release to ensure connectivity to GitHub remote repository.
 
 5. Ensure `poetry run python scripts/generate_openapi.py` is executed during
@@ -63,6 +63,9 @@ that a `Claude Code` CLI session is started running on an underlying Linux
 
     # Run tests with coverage report
     poetry run python -m coverage run -m pytest tests/
+  
+    # Build and package project into distributable formats: `sdist` and `wheel`
+    export SOURCE_DATE_EPOCH=$(date +%s); poetry build -vvv
     ```
 
 ## Generating a release plan
@@ -73,7 +76,7 @@ start `Claude Code`, and run the following custom slash command:
 - Test connectivity to this project remote Git repo:
 
    ```bash
-   scripts/test_github_connectivity.sh rubensgomes/calculator-ms
+   scripts/test_github.sh rubensgomes/calculator-ms
    ```
 
 - Claude code custom slash command:

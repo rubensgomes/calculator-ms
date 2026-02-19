@@ -1,7 +1,7 @@
 """FastAPI REST endpoints for the calculator microservice.
 
 Each endpoint accepts a POST request with a JSON body, delegates to
-:class:`calculator.calculator.Calculator`, and returns a JSON response
+:class:`calculator_lib.Calculator`, and returns a JSON response
 containing the result.
 """
 
@@ -9,11 +9,11 @@ import logging
 from importlib.metadata import version
 
 import yaml
+from calculator_lib import Calculator
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import RedirectResponse, Response
 from pydantic import BaseModel
 
-from .calculator import Calculator
 from .config import load_config, setup_logging
 
 load_config()

@@ -7,10 +7,10 @@
 #   network access, API availability, and authentication status.
 #
 # Usage:
-#   test_github_connectivity.sh <owner/repo>
+#   test_github.sh <owner/repo>
 #
 # Example:
-#   test_github_connectivity.sh rubensgomes/javamcp
+#   test_github.sh rubensgomes/javamcp
 #
 # Exit Codes:
 #   0 - All critical tests passed

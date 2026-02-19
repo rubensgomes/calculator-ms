@@ -7,6 +7,31 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.0] - 2026-02-18
+
+### Added
+
+- `calculator-lib-rubens (>=0.1.2,<0.2.0)` as a project dependency for the core
+  `Calculator` class.
+- "Common Poetry Commands" section in `README.md`.
+- `[tool.mypy]` configuration with override for untyped `calculator_lib` module.
+
+### Changed
+
+- Updated imports in `__init__.py`, `api.py`, and `test_calculator.py` to use
+  `calculator_lib.Calculator` instead of the local `calculator.calculator` module.
+- Updated `CLAUDE.md`: added `calculator-lib-rubens` to tech stack, removed
+  `calculator.py` from project structure, fixed `black` command prefix.
+- Updated `RELEASE.md`: fixed script path references to `scripts/test_github.sh`,
+  added `poetry build` command to release commands section.
+- Renamed `scripts/test_github_connectivity.sh` to `scripts/test_github.sh`.
+
+### Removed
+
+- `src/calculator/calculator.py` — replaced by external `calculator-lib-rubens`
+  library.
+- `logs/calculator.log` — stale log file superseded by `calculator-ms.log`.
+
 ## [0.4.0] - 2026-02-16
 
 ### Changed

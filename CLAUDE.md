@@ -8,6 +8,7 @@
 
 - **Python 3.14+**, **FastAPI**, **Uvicorn**, **Pydantic**
 - **Poetry** for dependency management
+- **calculator-lib-rubens** (`calculator_lib`) for the core Calculator class
 - **pytest** for testing, **httpx** for API tests, **black** for formatting
 - **PyYAML** for application configuration
 
@@ -16,7 +17,6 @@
 ```
 config.yaml           # Application configuration (server and logging settings)
 src/calculator/       # Source code (src-layout)
-  calculator.py       # Core Calculator class (stateless, all methods return float)
   api.py              # FastAPI endpoints (POST-based, Pydantic request/response models)
   config.py           # Reads config.yaml; provides load_config(), setup_logging(), get_server_config()
   __init__.py         # Public API: Calculator, app, get_server_config
@@ -39,7 +39,7 @@ pytest
 pytest -v
 
 # Format code
-black src/ tests/
+poetry run black src/ tests/
 
 # Start dev server
 poetry run python -m uvicorn calculator.api:app --reload

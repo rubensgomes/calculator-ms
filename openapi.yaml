@@ -3,7 +3,7 @@ info:
   title: Calculator Microservice
   description: A calculator with core arithmetic operations and some advanced operations
     like power, root, modulo, floor, absolute, round, ceil, log, ln, and exponential.
-  version: 0.4.0
+  version: 0.5.0
 paths:
   /add:
     post:

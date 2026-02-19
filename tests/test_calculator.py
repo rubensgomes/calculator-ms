@@ -1,8 +1,7 @@
 import math
 
 import pytest
-
-from calculator import Calculator
+from calculator_lib import Calculator
 
 
 @pytest.fixture

@@ -31,6 +31,37 @@ poetry run python -m uvicorn calculator.api:app --reload
 The API will be available at `http://127.0.0.1:8000`. Interactive docs are
 served at `/docs`.
 
+## Common Poetry Commands
+
+```bash
+# Update the dependencies found in `pyproject.toml`
+poetry update --verbose
+
+# Install the project dependencies
+poetry install --verbose
+
+# Activate Poetry-managed virtual environment in your current shell
+eval "$(poetry env activate)"
+
+# Sort and group import statements
+poetry run isort src/ tests/
+
+# Format your Python code
+poetry run black src/ tests/
+
+# Run static type checker on Python `src/` folder
+poetry run mypy src/
+
+# Lint
+poetry run pylint src/
+
+# Run tests
+poetry run pytest
+
+# Run tests with coverage
+poetry run pytest --cov
+```
+
 ## API Endpoints
 
 All endpoints accept POST requests with JSON bodies and return

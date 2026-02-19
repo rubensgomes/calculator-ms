@@ -1,130 +1,134 @@
-2026-02-14 15:57:41,036 [INFO] calculator.api: add(2.0, 3.0) = 5.0
-2026-02-14 15:57:41,038 [INFO] httpx: HTTP Request: POST http://testserver/add "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,041 [INFO] calculator.api: subtract(10.0, 4.0) = 6.0
-2026-02-14 15:57:41,041 [INFO] httpx: HTTP Request: POST http://testserver/subtract "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,043 [INFO] calculator.api: multiply(3.0, 7.0) = 21.0
-2026-02-14 15:57:41,044 [INFO] httpx: HTTP Request: POST http://testserver/multiply "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,049 [INFO] calculator.api: divide(15.0, 4.0) = 3.75
-2026-02-14 15:57:41,050 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,052 [WARNING] calculator.calculator: Division by zero attempted: divide(1.0, 0.0)
-2026-02-14 15:57:41,058 [WARNING] calculator.api: Validation error on /divide: Cannot divide by zero
-2026-02-14 15:57:41,059 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,061 [INFO] calculator.api: power(2.0, 3.0) = 8.0
-2026-02-14 15:57:41,062 [INFO] httpx: HTTP Request: POST http://testserver/power "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,064 [INFO] calculator.api: modulo(10.0, 3.0) = 1.0
-2026-02-14 15:57:41,065 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,068 [WARNING] calculator.calculator: Modulo by zero attempted: modulo(10.0, 0.0)
-2026-02-14 15:57:41,068 [WARNING] calculator.api: Validation error on /modulo: Cannot modulo by zero
-2026-02-14 15:57:41,069 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,073 [INFO] calculator.api: sqrt(16.0) = 4.0
-2026-02-14 15:57:41,074 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,076 [WARNING] calculator.calculator: Square root of negative number attempted: sqrt(-1.0)
-2026-02-14 15:57:41,077 [WARNING] calculator.api: Validation error on /sqrt: Cannot take square root of a negative number
-2026-02-14 15:57:41,077 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,080 [INFO] calculator.api: nth_root(27.0, 3.0) = 3.0
-2026-02-14 15:57:41,080 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,082 [WARNING] calculator.calculator: Zeroth root attempted: nth_root(8.0, 0.0)
-2026-02-14 15:57:41,083 [WARNING] calculator.api: Validation error on /nth_root: Cannot take zeroth root
-2026-02-14 15:57:41,083 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,085 [INFO] calculator.api: floor_divide(7.0, 2.0) = 3.0
-2026-02-14 15:57:41,086 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,089 [WARNING] calculator.calculator: Floor division by zero attempted: floor_divide(7.0, 0.0)
-2026-02-14 15:57:41,091 [WARNING] calculator.api: Validation error on /floor_divide: Cannot floor divide by zero
-2026-02-14 15:57:41,092 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,093 [INFO] calculator.api: absolute(-5.0) = 5.0
-2026-02-14 15:57:41,094 [INFO] httpx: HTTP Request: POST http://testserver/absolute "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,097 [INFO] calculator.api: round(3.14159, 2) = 3.14
-2026-02-14 15:57:41,098 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,100 [INFO] calculator.api: round(3.7, 0) = 4.0
-2026-02-14 15:57:41,101 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,103 [INFO] calculator.api: floor(3.7) = 3.0
-2026-02-14 15:57:41,104 [INFO] httpx: HTTP Request: POST http://testserver/floor "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,106 [INFO] calculator.api: ceil(3.2) = 4.0
-2026-02-14 15:57:41,106 [INFO] httpx: HTTP Request: POST http://testserver/ceil "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,108 [INFO] calculator.api: log10(100.0) = 2.0
-2026-02-14 15:57:41,109 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,111 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(0.0)
-2026-02-14 15:57:41,112 [WARNING] calculator.api: Validation error on /log10: Cannot take logarithm of a non-positive number
-2026-02-14 15:57:41,112 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,115 [INFO] calculator.api: ln(1.0) = 0.0
-2026-02-14 15:57:41,116 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,118 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(-1.0)
-2026-02-14 15:57:41,118 [WARNING] calculator.api: Validation error on /ln: Cannot take logarithm of a non-positive number
-2026-02-14 15:57:41,119 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 400 Bad Request"
-2026-02-14 15:57:41,121 [INFO] calculator.api: exp(0.0) = 1.0
-2026-02-14 15:57:41,122 [INFO] httpx: HTTP Request: POST http://testserver/exp "HTTP/1.1 200 OK"
-2026-02-14 15:57:41,127 [WARNING] calculator.calculator: Division by zero attempted: divide(10, 0)
-2026-02-14 15:57:41,129 [WARNING] calculator.calculator: Modulo by zero attempted: modulo(10, 0)
-2026-02-14 15:57:41,131 [WARNING] calculator.calculator: Square root of negative number attempted: sqrt(-1)
-2026-02-14 15:57:41,132 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(0)
-2026-02-14 15:57:41,133 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(-5)
-2026-02-14 15:57:41,134 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(0)
-2026-02-14 15:57:41,134 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(-1)
-2026-02-14 15:57:41,138 [WARNING] calculator.calculator: Even root of negative number attempted: nth_root(-4, 2)
-2026-02-14 15:57:41,138 [WARNING] calculator.calculator: Zeroth root attempted: nth_root(8, 0)
-2026-02-14 15:57:41,139 [WARNING] calculator.calculator: Floor division by zero attempted: floor_divide(10, 0)
-2026-02-14 16:03:57,045 [INFO] calculator.api: add(2.0, 3.0) = 5.0
-2026-02-14 16:03:57,047 [INFO] httpx: HTTP Request: POST http://testserver/add "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,050 [INFO] calculator.api: subtract(10.0, 4.0) = 6.0
-2026-02-14 16:03:57,051 [INFO] httpx: HTTP Request: POST http://testserver/subtract "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,053 [INFO] calculator.api: multiply(3.0, 7.0) = 21.0
-2026-02-14 16:03:57,054 [INFO] httpx: HTTP Request: POST http://testserver/multiply "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,059 [INFO] calculator.api: divide(15.0, 4.0) = 3.75
-2026-02-14 16:03:57,060 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,062 [WARNING] calculator.calculator: Division by zero attempted: divide(1.0, 0.0)
-2026-02-14 16:03:57,067 [WARNING] calculator.api: Validation error on /divide: Cannot divide by zero
-2026-02-14 16:03:57,069 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,071 [INFO] calculator.api: power(2.0, 3.0) = 8.0
-2026-02-14 16:03:57,072 [INFO] httpx: HTTP Request: POST http://testserver/power "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,074 [INFO] calculator.api: modulo(10.0, 3.0) = 1.0
-2026-02-14 16:03:57,075 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,077 [WARNING] calculator.calculator: Modulo by zero attempted: modulo(10.0, 0.0)
-2026-02-14 16:03:57,078 [WARNING] calculator.api: Validation error on /modulo: Cannot modulo by zero
-2026-02-14 16:03:57,079 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,081 [INFO] calculator.api: sqrt(16.0) = 4.0
-2026-02-14 16:03:57,082 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,084 [WARNING] calculator.calculator: Square root of negative number attempted: sqrt(-1.0)
-2026-02-14 16:03:57,085 [WARNING] calculator.api: Validation error on /sqrt: Cannot take square root of a negative number
-2026-02-14 16:03:57,085 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,088 [INFO] calculator.api: nth_root(27.0, 3.0) = 3.0
-2026-02-14 16:03:57,088 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,090 [WARNING] calculator.calculator: Zeroth root attempted: nth_root(8.0, 0.0)
-2026-02-14 16:03:57,091 [WARNING] calculator.api: Validation error on /nth_root: Cannot take zeroth root
-2026-02-14 16:03:57,091 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,094 [INFO] calculator.api: floor_divide(7.0, 2.0) = 3.0
-2026-02-14 16:03:57,095 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,097 [WARNING] calculator.calculator: Floor division by zero attempted: floor_divide(7.0, 0.0)
-2026-02-14 16:03:57,098 [WARNING] calculator.api: Validation error on /floor_divide: Cannot floor divide by zero
-2026-02-14 16:03:57,098 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,100 [INFO] calculator.api: absolute(-5.0) = 5.0
-2026-02-14 16:03:57,101 [INFO] httpx: HTTP Request: POST http://testserver/absolute "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,104 [INFO] calculator.api: round(3.14159, 2) = 3.14
-2026-02-14 16:03:57,105 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,110 [INFO] calculator.api: round(3.7, 0) = 4.0
-2026-02-14 16:03:57,111 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,113 [INFO] calculator.api: floor(3.7) = 3.0
-2026-02-14 16:03:57,113 [INFO] httpx: HTTP Request: POST http://testserver/floor "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,116 [INFO] calculator.api: ceil(3.2) = 4.0
-2026-02-14 16:03:57,116 [INFO] httpx: HTTP Request: POST http://testserver/ceil "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,118 [INFO] calculator.api: log10(100.0) = 2.0
-2026-02-14 16:03:57,119 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,121 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(0.0)
-2026-02-14 16:03:57,122 [WARNING] calculator.api: Validation error on /log10: Cannot take logarithm of a non-positive number
-2026-02-14 16:03:57,123 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,125 [INFO] calculator.api: ln(1.0) = 0.0
-2026-02-14 16:03:57,126 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,128 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(-1.0)
-2026-02-14 16:03:57,129 [WARNING] calculator.api: Validation error on /ln: Cannot take logarithm of a non-positive number
-2026-02-14 16:03:57,129 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 400 Bad Request"
-2026-02-14 16:03:57,132 [INFO] calculator.api: exp(0.0) = 1.0
-2026-02-14 16:03:57,133 [INFO] httpx: HTTP Request: POST http://testserver/exp "HTTP/1.1 200 OK"
-2026-02-14 16:03:57,139 [WARNING] calculator.calculator: Division by zero attempted: divide(10, 0)
-2026-02-14 16:03:57,143 [WARNING] calculator.calculator: Modulo by zero attempted: modulo(10, 0)
-2026-02-14 16:03:57,145 [WARNING] calculator.calculator: Square root of negative number attempted: sqrt(-1)
-2026-02-14 16:03:57,146 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(0)
-2026-02-14 16:03:57,147 [WARNING] calculator.calculator: Log of non-positive number attempted: log10(-5)
-2026-02-14 16:03:57,148 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(0)
-2026-02-14 16:03:57,148 [WARNING] calculator.calculator: Log of non-positive number attempted: ln(-1)
-2026-02-14 16:03:57,151 [WARNING] calculator.calculator: Even root of negative number attempted: nth_root(-4, 2)
-2026-02-14 16:03:57,152 [WARNING] calculator.calculator: Zeroth root attempted: nth_root(8, 0)
-2026-02-14 16:03:57,153 [WARNING] calculator.calculator: Floor division by zero attempted: floor_divide(10, 0)
+2026-02-18 18:56:38,423 [INFO] httpx: HTTP Request: GET http://testserver/ "HTTP/1.1 307 Temporary Redirect"
+2026-02-18 18:56:38,466 [INFO] httpx: HTTP Request: GET http://testserver/openapi.yaml "HTTP/1.1 200 OK"
+2026-02-18 18:56:38,496 [INFO] calculator.api: add(2.0, 3.0) = 5.0
+2026-02-18 18:56:39,619 [INFO] httpx: HTTP Request: POST http://testserver/add "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,623 [INFO] calculator.api: subtract(10.0, 4.0) = 6.0
+2026-02-18 18:56:39,625 [INFO] httpx: HTTP Request: POST http://testserver/subtract "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,628 [INFO] calculator.api: multiply(3.0, 7.0) = 21.0
+2026-02-18 18:56:39,629 [INFO] httpx: HTTP Request: POST http://testserver/multiply "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,632 [INFO] calculator.api: divide(15.0, 4.0) = 3.75
+2026-02-18 18:56:39,634 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,637 [WARNING] calculator_lib.calculator: Division by zero attempted: divide(1.0, 0.0)
+2026-02-18 18:56:39,637 [WARNING] calculator.api: Validation error on /divide: Cannot divide by zero
+2026-02-18 18:56:39,638 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,641 [INFO] calculator.api: power(2.0, 3.0) = 8.0
+2026-02-18 18:56:39,642 [INFO] httpx: HTTP Request: POST http://testserver/power "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,645 [INFO] calculator.api: modulo(10.0, 3.0) = 1.0
+2026-02-18 18:56:39,647 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,650 [WARNING] calculator_lib.calculator: Modulo by zero attempted: modulo(10.0, 0.0)
+2026-02-18 18:56:39,650 [WARNING] calculator.api: Validation error on /modulo: Cannot modulo by zero
+2026-02-18 18:56:39,651 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,654 [INFO] calculator.api: sqrt(16.0) = 4.0
+2026-02-18 18:56:39,655 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,659 [WARNING] calculator_lib.calculator: Square root of negative number attempted: sqrt(-1.0)
+2026-02-18 18:56:39,659 [WARNING] calculator.api: Validation error on /sqrt: Cannot take square root of a negative number
+2026-02-18 18:56:39,662 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,664 [INFO] calculator.api: nth_root(27.0, 3.0) = 3.0
+2026-02-18 18:56:39,665 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,668 [WARNING] calculator_lib.calculator: Zeroth root attempted: nth_root(8.0, 0.0)
+2026-02-18 18:56:39,668 [WARNING] calculator.api: Validation error on /nth_root: Cannot take zeroth root
+2026-02-18 18:56:39,669 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,673 [INFO] calculator.api: floor_divide(7.0, 2.0) = 3.0
+2026-02-18 18:56:39,675 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,678 [WARNING] calculator_lib.calculator: Floor division by zero attempted: floor_divide(7.0, 0.0)
+2026-02-18 18:56:39,678 [WARNING] calculator.api: Validation error on /floor_divide: Cannot floor divide by zero
+2026-02-18 18:56:39,679 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,684 [INFO] calculator.api: absolute(-5.0) = 5.0
+2026-02-18 18:56:39,685 [INFO] httpx: HTTP Request: POST http://testserver/absolute "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,688 [INFO] calculator.api: round(3.14159, 2) = 3.14
+2026-02-18 18:56:39,689 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,692 [INFO] calculator.api: round(3.7, 0) = 4.0
+2026-02-18 18:56:39,694 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,698 [INFO] calculator.api: floor(3.7) = 3.0
+2026-02-18 18:56:39,699 [INFO] httpx: HTTP Request: POST http://testserver/floor "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,702 [INFO] calculator.api: ceil(3.2) = 4.0
+2026-02-18 18:56:39,703 [INFO] httpx: HTTP Request: POST http://testserver/ceil "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,712 [INFO] calculator.api: log10(100.0) = 2.0
+2026-02-18 18:56:39,714 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,717 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(0.0)
+2026-02-18 18:56:39,717 [WARNING] calculator.api: Validation error on /log10: Cannot take logarithm of a non-positive number
+2026-02-18 18:56:39,718 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,721 [INFO] calculator.api: ln(1.0) = 0.0
+2026-02-18 18:56:39,723 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,726 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(-1.0)
+2026-02-18 18:56:39,726 [WARNING] calculator.api: Validation error on /ln: Cannot take logarithm of a non-positive number
+2026-02-18 18:56:39,727 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 400 Bad Request"
+2026-02-18 18:56:39,731 [INFO] calculator.api: exp(0.0) = 1.0
+2026-02-18 18:56:39,732 [INFO] httpx: HTTP Request: POST http://testserver/exp "HTTP/1.1 200 OK"
+2026-02-18 18:56:39,738 [WARNING] calculator_lib.calculator: Division by zero attempted: divide(10, 0)
+2026-02-18 18:56:39,742 [WARNING] calculator_lib.calculator: Modulo by zero attempted: modulo(10, 0)
+2026-02-18 18:56:39,744 [WARNING] calculator_lib.calculator: Square root of negative number attempted: sqrt(-1)
+2026-02-18 18:56:39,746 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(0)
+2026-02-18 18:56:39,747 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(-5)
+2026-02-18 18:56:39,748 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(0)
+2026-02-18 18:56:39,749 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(-1)
+2026-02-18 18:56:39,752 [WARNING] calculator_lib.calculator: Even root of negative number attempted: nth_root(-4, 2)
+2026-02-18 18:56:39,753 [WARNING] calculator_lib.calculator: Zeroth root attempted: nth_root(8, 0)
+2026-02-18 18:56:39,755 [WARNING] calculator_lib.calculator: Floor division by zero attempted: floor_divide(10, 0)
+2026-02-18 19:38:52,293 [INFO] httpx: HTTP Request: GET http://testserver/ "HTTP/1.1 307 Temporary Redirect"
+2026-02-18 19:38:52,310 [INFO] httpx: HTTP Request: GET http://testserver/openapi.yaml "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,326 [INFO] calculator.api: add(2.0, 3.0) = 5.0
+2026-02-18 19:38:52,327 [INFO] httpx: HTTP Request: POST http://testserver/add "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,329 [INFO] calculator.api: subtract(10.0, 4.0) = 6.0
+2026-02-18 19:38:52,331 [INFO] httpx: HTTP Request: POST http://testserver/subtract "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,335 [INFO] calculator.api: multiply(3.0, 7.0) = 21.0
+2026-02-18 19:38:52,336 [INFO] httpx: HTTP Request: POST http://testserver/multiply "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,338 [INFO] calculator.api: divide(15.0, 4.0) = 3.75
+2026-02-18 19:38:52,339 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,341 [WARNING] calculator_lib.calculator: Division by zero attempted: divide(1.0, 0.0)
+2026-02-18 19:38:52,341 [WARNING] calculator.api: Validation error on /divide: Cannot divide by zero
+2026-02-18 19:38:52,342 [INFO] httpx: HTTP Request: POST http://testserver/divide "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,343 [INFO] calculator.api: power(2.0, 3.0) = 8.0
+2026-02-18 19:38:52,344 [INFO] httpx: HTTP Request: POST http://testserver/power "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,346 [INFO] calculator.api: modulo(10.0, 3.0) = 1.0
+2026-02-18 19:38:52,346 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,348 [WARNING] calculator_lib.calculator: Modulo by zero attempted: modulo(10.0, 0.0)
+2026-02-18 19:38:52,348 [WARNING] calculator.api: Validation error on /modulo: Cannot modulo by zero
+2026-02-18 19:38:52,348 [INFO] httpx: HTTP Request: POST http://testserver/modulo "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,350 [INFO] calculator.api: sqrt(16.0) = 4.0
+2026-02-18 19:38:52,350 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,352 [WARNING] calculator_lib.calculator: Square root of negative number attempted: sqrt(-1.0)
+2026-02-18 19:38:52,352 [WARNING] calculator.api: Validation error on /sqrt: Cannot take square root of a negative number
+2026-02-18 19:38:52,353 [INFO] httpx: HTTP Request: POST http://testserver/sqrt "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,354 [INFO] calculator.api: nth_root(27.0, 3.0) = 3.0
+2026-02-18 19:38:52,355 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,356 [WARNING] calculator_lib.calculator: Zeroth root attempted: nth_root(8.0, 0.0)
+2026-02-18 19:38:52,356 [WARNING] calculator.api: Validation error on /nth_root: Cannot take zeroth root
+2026-02-18 19:38:52,357 [INFO] httpx: HTTP Request: POST http://testserver/nth_root "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,358 [INFO] calculator.api: floor_divide(7.0, 2.0) = 3.0
+2026-02-18 19:38:52,359 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,361 [WARNING] calculator_lib.calculator: Floor division by zero attempted: floor_divide(7.0, 0.0)
+2026-02-18 19:38:52,361 [WARNING] calculator.api: Validation error on /floor_divide: Cannot floor divide by zero
+2026-02-18 19:38:52,362 [INFO] httpx: HTTP Request: POST http://testserver/floor_divide "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,364 [INFO] calculator.api: absolute(-5.0) = 5.0
+2026-02-18 19:38:52,365 [INFO] httpx: HTTP Request: POST http://testserver/absolute "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,367 [INFO] calculator.api: round(3.14159, 2) = 3.14
+2026-02-18 19:38:52,368 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,370 [INFO] calculator.api: round(3.7, 0) = 4.0
+2026-02-18 19:38:52,370 [INFO] httpx: HTTP Request: POST http://testserver/round "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,372 [INFO] calculator.api: floor(3.7) = 3.0
+2026-02-18 19:38:52,372 [INFO] httpx: HTTP Request: POST http://testserver/floor "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,374 [INFO] calculator.api: ceil(3.2) = 4.0
+2026-02-18 19:38:52,374 [INFO] httpx: HTTP Request: POST http://testserver/ceil "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,376 [INFO] calculator.api: log10(100.0) = 2.0
+2026-02-18 19:38:52,377 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,379 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(0.0)
+2026-02-18 19:38:52,379 [WARNING] calculator.api: Validation error on /log10: Cannot take logarithm of a non-positive number
+2026-02-18 19:38:52,379 [INFO] httpx: HTTP Request: POST http://testserver/log10 "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,381 [INFO] calculator.api: ln(1.0) = 0.0
+2026-02-18 19:38:52,381 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,383 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(-1.0)
+2026-02-18 19:38:52,383 [WARNING] calculator.api: Validation error on /ln: Cannot take logarithm of a non-positive number
+2026-02-18 19:38:52,384 [INFO] httpx: HTTP Request: POST http://testserver/ln "HTTP/1.1 400 Bad Request"
+2026-02-18 19:38:52,385 [INFO] calculator.api: exp(0.0) = 1.0
+2026-02-18 19:38:52,386 [INFO] httpx: HTTP Request: POST http://testserver/exp "HTTP/1.1 200 OK"
+2026-02-18 19:38:52,390 [WARNING] calculator_lib.calculator: Division by zero attempted: divide(10, 0)
+2026-02-18 19:38:52,393 [WARNING] calculator_lib.calculator: Modulo by zero attempted: modulo(10, 0)
+2026-02-18 19:38:52,394 [WARNING] calculator_lib.calculator: Square root of negative number attempted: sqrt(-1)
+2026-02-18 19:38:52,398 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(0)
+2026-02-18 19:38:52,398 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: log10(-5)
+2026-02-18 19:38:52,399 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(0)
+2026-02-18 19:38:52,400 [WARNING] calculator_lib.calculator: Log of non-positive number attempted: ln(-1)
+2026-02-18 19:38:52,402 [WARNING] calculator_lib.calculator: Even root of negative number attempted: nth_root(-4, 2)
+2026-02-18 19:38:52,402 [WARNING] calculator_lib.calculator: Zeroth root attempted: nth_root(8, 0)
+2026-02-18 19:38:52,404 [WARNING] calculator_lib.calculator: Floor division by zero attempted: floor_divide(10, 0)
