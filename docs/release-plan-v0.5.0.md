@@ -51,7 +51,7 @@ the GitHub connectivity script for brevity.
 - [x] Run `export SOURCE_DATE_EPOCH=$(date +%s); poetry build -v` and fix any issues
 - [x] Update `CHANGELOG.md` with v0.5.0 changes
 - [x] Save this release plan in `docs/release-plan-v0.5.0.md`
-- [ ] Commit all changes with release message
-- [ ] Tag the commit as `v0.5.0`
-- [ ] Push commit and tag to remote
-- [ ] Create GitHub release for `v0.5.0`
+- [x] Commit all changes with release message
+- [x] Tag the commit as `v0.5.0`
+- [x] Push commit and tag to remote
+- [x] Create GitHub release for `v0.5.0`
