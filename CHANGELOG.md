@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.5.1] - 2026-02-20
+
+### Added
+
+- `SETUP.md` — comprehensive developer setup guide covering prerequisites,
+  tool installation (pyenv, Python, pipx, Poetry, Claude Code), virtual
+  environment management, common commands, PyCharm IDE configuration, and
+  PyPI publishing steps.
+
+### Changed
+
+- Expanded `.gitignore` with organized sections for Claude Code, Python,
+  Jupyter, testing/coverage, logs, OS files, AI/ML artifacts, and secrets.
+- Updated `LICENSE`: fixed punctuation, capitalized "Limitation of Liability"
+  heading, and appended the standard MIT License text.
+- Streamlined `RELEASE.md`: removed inline command listings (now references
+  `.claude/commands/release-plan.md`), removed duplicate prerequisites,
+  capitalized title.
+
 ## [0.5.0] - 2026-02-18
 
 ### Added

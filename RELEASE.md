@@ -1,4 +1,4 @@
-# Release process
+# Release Process
 
 **Currently, only Rubens Gomes is authorized to push a release**
 
@@ -14,18 +14,10 @@
     - git version 2.43.0 or later
     - grep version 3.11 or later
 
-2. Ensure a `release` branch is created in the remote repository.
+2. Ensure a `release` branch is created in the remote Git repository.
 
-3. Ensure the `claude/commands` files
-   from <https://github.com/rubensgomes/ai-code-steps?tab=readme-ov-file> are
-   installed in the local `~/.claude/commands` folder.
-
-4. Ensure the `scripts/test_github.sh` is executed prior to running
+3. Ensure the `scripts/test_github.sh` is executed prior to running
    a release to ensure connectivity to GitHub remote repository.
-
-5. Ensure `poetry run python scripts/generate_openapi.py` is executed during
-   release to ensure the latest version of `openapi.yaml` file is saved for that
-   release.
 
 ## Environment Variables
 
@@ -41,47 +33,16 @@ that a `Claude Code` CLI session is started running on an underlying Linux
 - GITHUB_TOKEN
 - GH_TOKEN (should be same as GITHUB_TOKEN)
 
-## Commands to run during release
+## Starting a Release
 
-- The following commands must run and succeed during a release:
+- Refer to [release-plan.md](.claude/commands/release-plan.md) for the list of
+  commands that are run during a release.
 
-    ```bash
-    # Format code
-    poetry run black src/ tests/
-    
-    # Lint
-    poetry run pylint src/
-    
-    # Type checking
-    poetry run mypy src/
-    
-    # Sort imports
-    poetry run isort src/ tests/
-    
-    # Run tests
-    poetry run pytest
+- The release plan is generated/executed within `Claude Code`. You must start
+  `Claude Code`, and run the following custom slash command:
 
-    # Run tests with coverage report
-    poetry run python -m coverage run -m pytest tests/
-  
-    # Build and package project into distributable formats: `sdist` and `wheel`
-    export SOURCE_DATE_EPOCH=$(date +%s); poetry build -vvv
-    ```
-
-## Generating a release plan
-
-The release plan is generated/executed within `Claude Code`. You must
-start `Claude Code`, and run the following custom slash command:
-
-- Test connectivity to this project remote Git repo:
-
-   ```bash
-   scripts/test_github.sh rubensgomes/calculator-ms
-   ```
-
-- Claude code custom slash command:
-
-    ```text
-    /release-plan rubensgomes/calculator-ms
+    ```commandline
+    # Claude Code edit mode command:
+    /release-plan rubensgomes/<proj-name>
     ```
 
