@@ -41,7 +41,7 @@ corrections and MIT license addition, streamlined `RELEASE.md`, and new
 - [x] Run `export SOURCE_DATE_EPOCH=$(date +%s); poetry build -v` and fix any issues
 - [x] Update `CHANGELOG.md` with v0.5.1 changes
 - [x] Save this release plan in `docs/release-plan-v0.5.1.md`
-- [ ] Commit all changes with release message
-- [ ] Tag the commit as `v0.5.1`
-- [ ] Push commit and tag to remote
-- [ ] Create GitHub release for `v0.5.1`
+- [x] Commit all changes with release message
+- [x] Tag the commit as `v0.5.1`
+- [x] Push commit and tag to remote
+- [x] Create GitHub release for `v0.5.1`
